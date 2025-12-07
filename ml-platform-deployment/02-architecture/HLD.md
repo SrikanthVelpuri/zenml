@@ -380,7 +380,7 @@ flowchart TB
     subgraph "Build"
         Lint[Code Linting]
         Test[Unit Tests]
-        Build[Docker Build]
+        BuildImage[Docker Build]
         Scan[Security Scan]
     end
 
@@ -404,8 +404,8 @@ flowchart TB
 
     Git --> Lint
     Lint --> Test
-    Test --> Build
-    Build --> Scan
+    Test --> BuildImage
+    BuildImage --> Scan
     Scan --> DeployDev
     DeployDev --> TestDev
     TestDev --> DeployStage
